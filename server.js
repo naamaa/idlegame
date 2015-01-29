@@ -10,5 +10,3 @@ app.get('/', function(req,res){
         res.send(html); });
     });
 app.listen(process.env.OPENSHIFT_NODEJS_PORT, process.env.OPENSHIFT_NODEJS_IP);
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs');
