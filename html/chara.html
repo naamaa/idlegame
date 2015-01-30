@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  </head>
+  <body>
+  	<script>
+    function message(msg){
+      document.getElementById("infot").innerHTML = msg;
+    }
+
+  	function createEntry(){
+  		var charname = document.getElementById("username").value;
+  		var password = document.getElementById("password").value;
+  		console.log(charname);
+  		console.log(password);
+
+  		$.get("/create?name="+charname+"&password="+password, function(data){
+  		});
+  	}
+
+  	function readEntry(){
+      console.log("Onnee, painoit nappii");
+  	   var charname = document.getElementById("username").value;
+       message(charname);
+  	   $.get("/read?name="+charname, handleEntry(data))
+  	}
+
+  	function handleEntry(data){
+        console.log("hip")
+  	}
+  	</script>
+
+<input id="username" type="text"/>Name<br/>
+<input id="password" type="text"/>Password<br/>
+<button id="create" onclick="createEntry()">Create</button>
+<button id="login" onclick="readEntry()">Login</button>
+<p id="infot"></p>
+</body>
+</html>
